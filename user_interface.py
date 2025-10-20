@@ -9,10 +9,7 @@ def show_menu() -> str:
 def get_new_contact_info() -> dict:
     name = input("Введите имя: ")
     phone = input("Введите телефон: ")
-    if name or phone == "":
-        print("Этот параметр не может быть 0.")
-    else:
-        return {"name": name, "phone": phone}
+    return {"name": name, "phone": phone}
 
 def get_search_query() -> str:
     return input("Введите строку для поиска: ")
