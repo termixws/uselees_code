@@ -13,8 +13,17 @@ def main():
             new_user = get_new_contact_info()
             contact_list.append(new_user)
             save_contacts(file_save, contact_list)
-            display_message(f"Контанкт {new_user} добавлен")
+            display_message(f"Контанкт {new_user['name']} добавлен")
         
+        elif chouse == "3":
+            queri = get_search_query()
+            found = []
+            for contact in contact_list:
+                name_search = queri in contact['name']
+                phone_search = queri in contact['phone']
+                if name_search or phone_search:
+                    found.append(contact)
+                display_contacts(found)
         elif chouse == "0":
             break
         
