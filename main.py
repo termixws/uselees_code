@@ -7,8 +7,17 @@ def main():
     contact_list = load_contacts(file_save)
     while True:
         chouse = show_menu()
-        if chouse == 1:
+        if chouse == "1":
             display_contacts(contact_list)
-        elif chouse == 2:
-            get_new_contact_info(contact_list)
+        elif chouse == "2":
+            new_user = get_new_contact_info()
+            contact_list.append(new_user)
+            save_contacts(file_save, contact_list)
+            display_message(f"Контанкт {new_user} добавлен")
+        
+        elif chouse == "0":
+            break
+        
+if __name__ == "__main__":        
+    main()
             
