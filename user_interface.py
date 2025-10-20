@@ -1,4 +1,4 @@
-def show_menu() -> str:
+def show_menu() -> int:
     print("\n--- Меню ---")
     print("1. Показать все контакты")
     print("2. Добавить контакт")
@@ -7,9 +7,19 @@ def show_menu() -> str:
     return input("Ваш выбор: ")
 
 def get_new_contact_info() -> dict:
-    name = input("Введите имя: ")
-    phone = input("Введите телефон: ")
-    return {"name": name, "phone": phone}
+    while True:
+        name = input("Введите имя: ")
+        phone = input("Введите телефон: ")
+        if not name or not phone:
+            print("Ошибка: поля не могут быть пустыми.")
+            continue
+        if name.isdigit():
+            print("Ошибка имя не может быть числом.")
+            continue
+        if not phone.isdigit():
+            print("Ошибка телефон не может быть строкой.")
+            continue
+        return {"name" : name, "phone" : phone}
 
 def get_search_query() -> str:
     return input("Введите строку для поиска: ")
