@@ -23,7 +23,10 @@ def main():
                 phone_search = queri in contact['phone']
                 if name_search or phone_search:
                     found.append(contact)
-                display_contacts(found)
+                if found:
+                    display_contacts(found)
+                else:
+                    print("Контакт не найден")
         elif chouse == "0":
             break
         
